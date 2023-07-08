@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 @Controller
 public class TodosController {
     
@@ -19,7 +17,7 @@ public class TodosController {
     
     @GetMapping("/")
     public String home(Model model) {
-        List<Todo> allTodos = todoRepository.findAll();
+        var allTodos = todoRepository.findAll();
         model.addAttribute("title", "Welcome to Spring Boot on Railway!");
         model.addAttribute("todos", allTodos);
         return "home";
