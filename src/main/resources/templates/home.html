@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" href="/app.css">
+</head>
+
+<body>
+    <main>
+        <h1>Todos</h1>
+        <ul>
+            <li class="no-todos" th:if="${#lists.isEmpty(todos)}">
+                You're all caught up!
+            </li>
+            <li th:each="todo : *{todos}">
+                <span th:text="${todo.content}"></span>
+                <form method="post" action="/delete">
+                    <input type="hidden" name="id" th:attr="value=${todo.id}">
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+            </li>
+        </ul>
+        <form method="post" action="/create">
+            <input type="text" placeholder="What do you need to do?" name="content">
+            <button type="submit" id="add-btn">Add</button>
+        </form>
+    </main>
+</body>
+
+</html>

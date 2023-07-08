@@ -1,13 +1,13 @@
-package app.railway.springboot.java;
+package com.example.springbootjava;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootJavaApplication {
+public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootJavaApplication.class, args);
+		SpringApplication.run(DemoApplication.class, args);
 	}
 
 }
