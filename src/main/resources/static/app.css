@@ -48,6 +48,10 @@ li.no-todos {
     font-style: italic;
 }
 
+li span {
+    margin-right: 5px;
+}
+
 li span, li form {
     display: block;
 }
