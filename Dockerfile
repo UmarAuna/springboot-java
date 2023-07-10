@@ -5,7 +5,9 @@ RUN ./gradlew bootJar
 RUN mv -f build/libs/*.jar app.jar
 
 FROM eclipse-temurin:20-jre
+ARG PORT
+ENV PORT=${PORT}
 COPY --from=build /app/app.jar .
 RUN useradd runtime
 USER runtime
-ENTRYPOINT [ "java", "-jar", "app.jar" ]
+ENTRYPOINT [ "java", "-jar", "app.jar", "-Dserver.port=${PORT}" ]
